@@ -13,6 +13,8 @@ dependencies:
 
   # firebase
   firebase_core: ^0.5.3
+  firebase_auth: ^0.18.4+1
+  cloud_firestore: ^0.14.4
 
   # flutter
   flutter_redux: ^0.7.0
