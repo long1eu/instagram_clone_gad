@@ -2,6 +2,7 @@
 // Lung Razvan <long1eu>
 // on 04/01/2021
 
+import 'package:instagram_clone_gad/src/actions/index.dart';
 import 'package:instagram_clone_gad/src/models/index.dart';
 import 'package:redux/redux.dart';
 

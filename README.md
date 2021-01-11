@@ -11,9 +11,10 @@ This is a clone of Instagram with the following features:
 * [x] add splash screen
 
 ## Authentication (Login/Logout/Sign Up) (40')
-  * [ ] login/signup with email and password (15')
-  * [ ] login/signup with Google (10')
-  * [ ] login/signup with Apple (10')
+  * [x] login/signup with email and password (15')
+  * [x] login/signup with Google (10')
+  * [x] sign out (10')
+  * [ ] login/signup with Apple (10') (optional)
   * [ ] reset password (5')
 
 ## Add post (115')

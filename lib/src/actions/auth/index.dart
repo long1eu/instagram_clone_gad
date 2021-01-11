@@ -12,4 +12,5 @@ part 'index.freezed.dart';
 part 'login.dart';
 part 'set.dart';
 part 'sign_out.dart';
-part 'signup.dart';
+part 'sign_up_with_google.dart';
+part 'sign_up.dart';
