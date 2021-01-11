@@ -19,13 +19,29 @@ class AuthEpics {
   Epic<AppState> get epics {
     return combineEpics<AppState>(<Epic<AppState>>[
       TypedEpic<AppState, Login$>(_login),
+      TypedEpic<AppState, Signup$>(_signup),
     ]);
   }
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
     return actions //
-        .asyncMap((Login$ action) => _api.login(email: action.email, password: action.password))
-        .map((AppUser user) => Login.successful(user))
-        .onErrorReturnWith((dynamic error) => Login.error(error));
+        .flatMap((Login$ action) => Stream<Login$>.value(action)
+            .asyncMap((Login$ action) => _api.login(email: action.email, password: action.password))
+            .map((AppUser user) => Login.successful(user))
+            .onErrorReturnWith((dynamic error) => Login.error(error))
+            .doOnData(action.response));
+  }
+
+  Stream<AppAction> _signup(Stream<Signup$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((Signup$ action) => Stream<Signup$>.value(action)
+            .asyncMap((Signup$ action) => _api.signUp(
+                  email: store.state.auth.info.email,
+                  password: store.state.auth.info.password,
+                  username: store.state.auth.info.username,
+                ))
+            .map((AppUser user) => Signup.successful(user))
+            .onErrorReturnWith((dynamic error) => Signup.error(error))
+            .doOnData(action.response));
   }
 }

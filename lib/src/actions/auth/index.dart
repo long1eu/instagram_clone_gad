@@ -10,3 +10,5 @@ import 'package:instagram_clone_gad/src/models/index.dart';
 
 part 'index.freezed.dart';
 part 'login.dart';
+part 'set.dart';
+part 'signup.dart';

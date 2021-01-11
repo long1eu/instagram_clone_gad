@@ -7,31 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:instagram_clone_gad/src/actions/index.dart';
 import 'package:instagram_clone_gad/src/models/index.dart';
-import 'package:instagram_clone_gad/src/presentation/mixin/dialog_mixin.dart';
 import 'package:instagram_clone_gad/src/presentation/routes.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
-
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> with DialogMixin {
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
-
-  void _response(AppAction action) {
-    if (action is LoginError) {
-      showErrorDialog(context, 'Login error', action.error);
-    }
-  }
+class SignupPage extends StatelessWidget {
+  const SignupPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Signup'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -41,12 +26,13 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
               return Column(
                 children: <Widget>[
                   TextFormField(
-                    controller: _email,
                     decoration: const InputDecoration(
                       hintText: 'email',
                     ),
                     keyboardType: TextInputType.emailAddress,
-                    onChanged: (String value) {},
+                    onChanged: (String value) {
+                      StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(email: value));
+                    },
                     validator: (String value) {
                       if (!value.contains('@') || !value.contains('.')) {
                         return 'Please enter a valid email address';
@@ -55,48 +41,28 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
                       return null;
                     },
                   ),
-                  const Divider(),
-                  TextFormField(
-                    controller: _password,
-                    decoration: const InputDecoration(
-                      hintText: 'password',
-                    ),
-                    obscureText: true,
-                    onChanged: (String value) {},
-                    validator: (String value) {
-                      if (value.length < 6) {
-                        return 'Please try a better password';
-                      }
-
-                      return null;
-                    },
-                  ),
                   const Spacer(),
                   FlatButton(
-                    child: const Text('Login'),
+                    child: const Text('Continue'),
                     onPressed: () {
                       if (Form.of(context).validate()) {
-                        StoreProvider.of<AppState>(context).dispatch(Login(
-                          email: _email.text,
-                          password: _password.text,
-                          response: _response,
-                        ));
+                        Navigator.pushNamed(context, AppRoutes.username);
                       }
                     },
                   ),
                   const Divider(),
                   Text.rich(
                     TextSpan(
-                      text: 'You don\'t have an account? ',
+                      text: 'Already have an account? ',
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'Sign Up!',
+                          text: 'Login!',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(context, AppRoutes.signup);
+                              Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
                             },
                         ),
                       ],

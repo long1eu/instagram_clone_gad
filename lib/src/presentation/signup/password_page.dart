@@ -10,20 +10,14 @@ import 'package:instagram_clone_gad/src/models/index.dart';
 import 'package:instagram_clone_gad/src/presentation/mixin/dialog_mixin.dart';
 import 'package:instagram_clone_gad/src/presentation/routes.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
+class PasswordPage extends StatelessWidget with DialogMixin {
+  const PasswordPage({Key key}) : super(key: key);
 
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> with DialogMixin {
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
-
-  void _response(AppAction action) {
-    if (action is LoginError) {
-      showErrorDialog(context, 'Login error', action.error);
+  void _response(BuildContext context, AppAction action) {
+    if (action is SignupSuccessful) {
+      Navigator.pushNamedAndRemoveUntil(context, AppRoutes.home, (_) => false);
+    } else if (action is SignupError) {
+      showErrorDialog(context, 'Signup error', action.error);
     }
   }
 
@@ -31,7 +25,7 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Password'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -41,31 +35,17 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
               return Column(
                 children: <Widget>[
                   TextFormField(
-                    controller: _email,
-                    decoration: const InputDecoration(
-                      hintText: 'email',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (String value) {},
-                    validator: (String value) {
-                      if (!value.contains('@') || !value.contains('.')) {
-                        return 'Please enter a valid email address';
-                      }
-
-                      return null;
-                    },
-                  ),
-                  const Divider(),
-                  TextFormField(
-                    controller: _password,
                     decoration: const InputDecoration(
                       hintText: 'password',
                     ),
                     obscureText: true,
-                    onChanged: (String value) {},
+                    keyboardType: TextInputType.visiblePassword,
+                    onChanged: (String value) {
+                      StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(password: value));
+                    },
                     validator: (String value) {
                       if (value.length < 6) {
-                        return 'Please try a better password';
+                        return 'Please choose a better password';
                       }
 
                       return null;
@@ -73,30 +53,28 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
                   ),
                   const Spacer(),
                   FlatButton(
-                    child: const Text('Login'),
+                    child: const Text('SignUp!'),
                     onPressed: () {
                       if (Form.of(context).validate()) {
-                        StoreProvider.of<AppState>(context).dispatch(Login(
-                          email: _email.text,
-                          password: _password.text,
-                          response: _response,
-                        ));
+                        StoreProvider.of<AppState>(context).dispatch(Signup((AppAction action) {
+                          _response(context, action);
+                        }));
                       }
                     },
                   ),
                   const Divider(),
                   Text.rich(
                     TextSpan(
-                      text: 'You don\'t have an account? ',
+                      text: 'Already have an account? ',
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'Sign Up!',
+                          text: 'Login!',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(context, AppRoutes.signup);
+                              Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
                             },
                         ),
                       ],
