@@ -39,4 +39,8 @@ class AuthApi {
     await _firestore.doc('users/${user.uid}').set(appUser.json);
     return appUser;
   }
+
+  Future<void> signOut() async {
+    await _auth.signOut();
+  }
 }

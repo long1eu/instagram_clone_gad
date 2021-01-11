@@ -20,6 +20,7 @@ class AuthEpics {
     return combineEpics<AppState>(<Epic<AppState>>[
       TypedEpic<AppState, Login$>(_login),
       TypedEpic<AppState, Signup$>(_signup),
+      TypedEpic<AppState, SignOut$>(_signOut),
     ]);
   }
 
@@ -43,5 +44,13 @@ class AuthEpics {
             .map((AppUser user) => Signup.successful(user))
             .onErrorReturnWith((dynamic error) => Signup.error(error))
             .doOnData(action.response));
+  }
+
+  Stream<AppAction> _signOut(Stream<SignOut$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SignOut$ action) => Stream<SignOut$>.value(action)
+            .asyncMap((SignOut$ action) => _api.signOut())
+            .mapTo(const SignOut.successful())
+            .onErrorReturnWith((dynamic error) => SignOut.error(error)));
   }
 }

@@ -33,3 +33,4 @@ AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo action
     }
   });
 }
+
