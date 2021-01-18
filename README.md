@@ -15,7 +15,7 @@ This is a clone of Instagram with the following features:
   * [x] login/signup with Google (10')
   * [x] sign out (10')
   * [ ] login/signup with Apple (10') (optional)
-  * [ ] reset password (5')
+  * [x] reset password (5')
 
 ## Add post (115')
  * [ ] add multiples pictures from the gallery and the camera (40')

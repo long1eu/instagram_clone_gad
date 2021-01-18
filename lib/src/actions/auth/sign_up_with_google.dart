@@ -11,5 +11,5 @@ abstract class SignUpWithGoogle with _$SignUpWithGoogle implements AppAction {
   const factory SignUpWithGoogle.successful(AppUser user) = SignUpWithGoogleSuccessful;
 
   @Implements(ErrorAction)
-  const factory SignUpWithGoogle.error(StateError error) = SignUpWithGoogleError;
+  const factory SignUpWithGoogle.error(Object error) = SignUpWithGoogleError;
 }

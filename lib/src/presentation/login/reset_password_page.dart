@@ -10,16 +10,15 @@ import 'package:instagram_clone_gad/src/models/index.dart';
 import 'package:instagram_clone_gad/src/presentation/mixin/dialog_mixin.dart';
 import 'package:instagram_clone_gad/src/presentation/routes.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
+class ResetPasswordPage extends StatefulWidget {
+  const ResetPasswordPage({Key key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _ResetPasswordPageState createState() => _ResetPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> with DialogMixin {
+class _ResetPasswordPageState extends State<ResetPasswordPage> with DialogMixin {
   final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
 
   void _response(AppAction action) {
     if (action is LoginError) {
@@ -33,7 +32,7 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Reset password'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -57,48 +56,12 @@ class _LoginPageState extends State<LoginPage> with DialogMixin {
                       return null;
                     },
                   ),
-                  const Divider(),
-                  TextFormField(
-                    controller: _password,
-                    decoration: const InputDecoration(
-                      hintText: 'password',
-                    ),
-                    obscureText: true,
-                    onChanged: (String value) {},
-                    validator: (String value) {
-                      if (value.length < 6) {
-                        return 'Please try a better password';
-                      }
-
-                      return null;
-                    },
-                  ),
-                  ButtonBar(
-                    children: <Widget>[
-                      FlatButton(
-                        child: const Text('Sign in with Google'),
-                        onPressed: () {
-                          StoreProvider.of<AppState>(context).dispatch(SignUpWithGoogle(_response));
-                        },
-                      ),
-                      FlatButton(
-                        child: const Text('Reset password'),
-                        onPressed: () {
-                          Navigator.pushNamed(context, AppRoutes.resetPassword);
-                        },
-                      ),
-                    ],
-                  ),
                   const Spacer(),
                   FlatButton(
                     child: const Text('Login'),
                     onPressed: () {
                       if (Form.of(context).validate()) {
-                        StoreProvider.of<AppState>(context).dispatch(Login(
-                          email: _email.text,
-                          password: _password.text,
-                          response: _response,
-                        ));
+                        StoreProvider.of<AppState>(context).dispatch(ResetPassword(_email.text));
                       }
                     },
                   ),

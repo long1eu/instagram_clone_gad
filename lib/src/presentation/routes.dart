@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:instagram_clone_gad/src/presentation/home.dart';
+import 'package:instagram_clone_gad/src/presentation/login/reset_password_page.dart';
 import 'package:instagram_clone_gad/src/presentation/signup/signup_page.dart';
 import 'package:instagram_clone_gad/src/presentation/signup/username_page.dart';
 
@@ -12,6 +13,7 @@ class AppRoutes {
   static const String home = '/';
   static const String signup = '/signup';
   static const String username = '/username';
+  static const String resetPassword = '/resetPassword';
 
   static Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
     home: (BuildContext context) {
@@ -22,6 +24,9 @@ class AppRoutes {
     },
     username: (BuildContext context) {
       return const UsernamePage();
+    },
+    resetPassword: (BuildContext context) {
+      return const ResetPasswordPage();
     },
   };
 }
