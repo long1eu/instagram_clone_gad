@@ -27,62 +27,64 @@ class PasswordPage extends StatelessWidget with DialogMixin {
       appBar: AppBar(
         title: const Text('Password'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          child: Builder(
-            builder: (BuildContext context) {
-              return Column(
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'password',
-                    ),
-                    obscureText: true,
-                    keyboardType: TextInputType.visiblePassword,
-                    onChanged: (String value) {
-                      StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(password: value));
-                    },
-                    validator: (String value) {
-                      if (value.length < 6) {
-                        return 'Please choose a better password';
-                      }
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            child: Builder(
+              builder: (BuildContext context) {
+                return Column(
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'password',
+                      ),
+                      obscureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+                      onChanged: (String value) {
+                        StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(password: value));
+                      },
+                      validator: (String value) {
+                        if (value.length < 6) {
+                          return 'Please choose a better password';
+                        }
 
-                      return null;
-                    },
-                  ),
-                  const Spacer(),
-                  FlatButton(
-                    child: const Text('SignUp!'),
-                    onPressed: () {
-                      if (Form.of(context).validate()) {
-                        StoreProvider.of<AppState>(context).dispatch(Signup((AppAction action) {
-                          _response(context, action);
-                        }));
-                      }
-                    },
-                  ),
-                  const Divider(),
-                  Text.rich(
-                    TextSpan(
-                      text: 'Already have an account? ',
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Login!',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
-                            },
-                        ),
-                      ],
+                        return null;
+                      },
                     ),
-                  ),
-                ],
-              );
-            },
+                    const Spacer(),
+                    FlatButton(
+                      child: const Text('SignUp!'),
+                      onPressed: () {
+                        if (Form.of(context).validate()) {
+                          StoreProvider.of<AppState>(context).dispatch(Signup((AppAction action) {
+                            _response(context, action);
+                          }));
+                        }
+                      },
+                    ),
+                    const Divider(),
+                    Text.rich(
+                      TextSpan(
+                        text: 'Already have an account? ',
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Login!',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

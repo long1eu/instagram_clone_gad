@@ -18,11 +18,11 @@ This is a clone of Instagram with the following features:
   * [x] reset password (5')
 
 ## Add post (115')
- * [ ] add multiples pictures from the gallery and the camera (40')
- * [ ] add tags (25')
- * [ ] add person (20')
- * [ ] add location (20')
- * [ ] post comment (10')
+ * [x] add multiples pictures from the gallery and the camera (40')
+ * [X] add tags (25')
+ * [x] add person (20')
+ * [x] add location (20')
+ * [x] post comment (10')
 
 ## Feed Page (70')
   * [ ] show posts of users that I follow (20')

@@ -29,6 +29,10 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
       'username',
       serializers.serialize(object.username,
           specifiedType: const FullType(String)),
+      'searchIndex',
+      serializers.serialize(object.searchIndex,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
     ];
     if (object.photoUrl != null) {
       result
@@ -62,6 +66,12 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
           result.username = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'searchIndex':
+          result.searchIndex.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<Object>);
+          break;
         case 'photoUrl':
           result.photoUrl = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -86,6 +96,10 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
       'info',
       serializers.serialize(object.info,
           specifiedType: const FullType(RegistrationInfo)),
+      'searchResult',
+      serializers.serialize(object.searchResult,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(AppUser)])),
     ];
     if (object.user != null) {
       result
@@ -115,6 +129,12 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
           result.info.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RegistrationInfo))
               as RegistrationInfo);
+          break;
+        case 'searchResult':
+          result.searchResult.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(AppUser)]))
+              as BuiltList<Object>);
           break;
       }
     }
@@ -194,12 +214,15 @@ class _$AppUser extends AppUser {
   @override
   final String username;
   @override
+  final BuiltList<String> searchIndex;
+  @override
   final String photoUrl;
 
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
 
-  _$AppUser._({this.uid, this.email, this.username, this.photoUrl})
+  _$AppUser._(
+      {this.uid, this.email, this.username, this.searchIndex, this.photoUrl})
       : super._() {
     if (uid == null) {
       throw new BuiltValueNullFieldError('AppUser', 'uid');
@@ -209,6 +232,9 @@ class _$AppUser extends AppUser {
     }
     if (username == null) {
       throw new BuiltValueNullFieldError('AppUser', 'username');
+    }
+    if (searchIndex == null) {
+      throw new BuiltValueNullFieldError('AppUser', 'searchIndex');
     }
   }
 
@@ -226,13 +252,15 @@ class _$AppUser extends AppUser {
         uid == other.uid &&
         email == other.email &&
         username == other.username &&
+        searchIndex == other.searchIndex &&
         photoUrl == other.photoUrl;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, uid.hashCode), email.hashCode), username.hashCode),
+        $jc($jc($jc($jc(0, uid.hashCode), email.hashCode), username.hashCode),
+            searchIndex.hashCode),
         photoUrl.hashCode));
   }
 
@@ -242,6 +270,7 @@ class _$AppUser extends AppUser {
           ..add('uid', uid)
           ..add('email', email)
           ..add('username', username)
+          ..add('searchIndex', searchIndex)
           ..add('photoUrl', photoUrl))
         .toString();
   }
@@ -262,6 +291,12 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   String get username => _$this._username;
   set username(String username) => _$this._username = username;
 
+  ListBuilder<String> _searchIndex;
+  ListBuilder<String> get searchIndex =>
+      _$this._searchIndex ??= new ListBuilder<String>();
+  set searchIndex(ListBuilder<String> searchIndex) =>
+      _$this._searchIndex = searchIndex;
+
   String _photoUrl;
   String get photoUrl => _$this._photoUrl;
   set photoUrl(String photoUrl) => _$this._photoUrl = photoUrl;
@@ -273,6 +308,7 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _uid = _$v.uid;
       _email = _$v.email;
       _username = _$v.username;
+      _searchIndex = _$v.searchIndex?.toBuilder();
       _photoUrl = _$v.photoUrl;
       _$v = null;
     }
@@ -294,9 +330,26 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
 
   @override
   _$AppUser build() {
-    final _$result = _$v ??
-        new _$AppUser._(
-            uid: uid, email: email, username: username, photoUrl: photoUrl);
+    _$AppUser _$result;
+    try {
+      _$result = _$v ??
+          new _$AppUser._(
+              uid: uid,
+              email: email,
+              username: username,
+              searchIndex: searchIndex.build(),
+              photoUrl: photoUrl);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'searchIndex';
+        searchIndex.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'AppUser', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -307,13 +360,18 @@ class _$AuthState extends AuthState {
   final AppUser user;
   @override
   final RegistrationInfo info;
+  @override
+  final BuiltList<AppUser> searchResult;
 
   factory _$AuthState([void Function(AuthStateBuilder) updates]) =>
       (new AuthStateBuilder()..update(updates)).build();
 
-  _$AuthState._({this.user, this.info}) : super._() {
+  _$AuthState._({this.user, this.info, this.searchResult}) : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('AuthState', 'info');
+    }
+    if (searchResult == null) {
+      throw new BuiltValueNullFieldError('AuthState', 'searchResult');
     }
   }
 
@@ -327,19 +385,24 @@ class _$AuthState extends AuthState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AuthState && user == other.user && info == other.info;
+    return other is AuthState &&
+        user == other.user &&
+        info == other.info &&
+        searchResult == other.searchResult;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, user.hashCode), info.hashCode));
+    return $jf(
+        $jc($jc($jc(0, user.hashCode), info.hashCode), searchResult.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AuthState')
           ..add('user', user)
-          ..add('info', info))
+          ..add('info', info)
+          ..add('searchResult', searchResult))
         .toString();
   }
 }
@@ -356,12 +419,19 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
       _$this._info ??= new RegistrationInfoBuilder();
   set info(RegistrationInfoBuilder info) => _$this._info = info;
 
+  ListBuilder<AppUser> _searchResult;
+  ListBuilder<AppUser> get searchResult =>
+      _$this._searchResult ??= new ListBuilder<AppUser>();
+  set searchResult(ListBuilder<AppUser> searchResult) =>
+      _$this._searchResult = searchResult;
+
   AuthStateBuilder();
 
   AuthStateBuilder get _$this {
     if (_$v != null) {
       _user = _$v.user?.toBuilder();
       _info = _$v.info?.toBuilder();
+      _searchResult = _$v.searchResult?.toBuilder();
       _$v = null;
     }
     return this;
@@ -384,8 +454,11 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
   _$AuthState build() {
     _$AuthState _$result;
     try {
-      _$result =
-          _$v ?? new _$AuthState._(user: _user?.build(), info: info.build());
+      _$result = _$v ??
+          new _$AuthState._(
+              user: _user?.build(),
+              info: info.build(),
+              searchResult: searchResult.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -393,6 +466,8 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
         _user?.build();
         _$failedField = 'info';
         info.build();
+        _$failedField = 'searchResult';
+        searchResult.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AuthState', _$failedField, e.toString());

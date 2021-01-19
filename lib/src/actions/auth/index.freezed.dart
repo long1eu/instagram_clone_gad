@@ -501,7 +501,7 @@ class _$ResetPasswordTearOff {
   }
 
 // ignore: unused_element
-  ResetPasswordError error(AuthStateObject error) {
+  ResetPasswordError error(Object error) {
     return ResetPasswordError(
       error,
     );
@@ -518,13 +518,13 @@ mixin _$ResetPassword {
   Result when<Result extends Object>(
     Result $default(String email), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(String email), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -621,7 +621,7 @@ class _$ResetPassword$ implements ResetPassword$ {
   Result when<Result extends Object>(
     Result $default(String email), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -634,7 +634,7 @@ class _$ResetPassword$ implements ResetPassword$ {
   Result maybeWhen<Result extends Object>(
     Result $default(String email), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -721,7 +721,7 @@ class _$ResetPasswordSuccessful implements ResetPasswordSuccessful {
   Result when<Result extends Object>(
     Result $default(String email), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -734,7 +734,7 @@ class _$ResetPasswordSuccessful implements ResetPasswordSuccessful {
   Result maybeWhen<Result extends Object>(
     Result $default(String email), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -782,7 +782,7 @@ abstract class $ResetPasswordErrorCopyWith<$Res> {
   factory $ResetPasswordErrorCopyWith(
           ResetPasswordError value, $Res Function(ResetPasswordError) then) =
       _$ResetPasswordErrorCopyWithImpl<$Res>;
-  $Res call({AuthStateObject error});
+  $Res call({Object error});
 }
 
 /// @nodoc
@@ -801,7 +801,7 @@ class _$ResetPasswordErrorCopyWithImpl<$Res>
     Object error = freezed,
   }) {
     return _then(ResetPasswordError(
-      error == freezed ? _value.error : error as AuthStateObject,
+      error == freezed ? _value.error : error,
     ));
   }
 }
@@ -813,7 +813,7 @@ class _$ResetPasswordError implements ResetPasswordError {
   const _$ResetPasswordError(this.error) : assert(error != null);
 
   @override
-  final AuthStateObject error;
+  final Object error;
 
   @override
   String toString() {
@@ -841,7 +841,7 @@ class _$ResetPasswordError implements ResetPasswordError {
   Result when<Result extends Object>(
     Result $default(String email), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -854,7 +854,7 @@ class _$ResetPasswordError implements ResetPasswordError {
   Result maybeWhen<Result extends Object>(
     Result $default(String email), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -894,11 +894,452 @@ class _$ResetPasswordError implements ResetPasswordError {
 }
 
 abstract class ResetPasswordError implements ResetPassword, ErrorAction {
-  const factory ResetPasswordError(AuthStateObject error) =
-      _$ResetPasswordError;
+  const factory ResetPasswordError(Object error) = _$ResetPasswordError;
 
-  AuthStateObject get error;
+  Object get error;
   $ResetPasswordErrorCopyWith<ResetPasswordError> get copyWith;
+}
+
+/// @nodoc
+class _$SearchUsersTearOff {
+  const _$SearchUsersTearOff();
+
+// ignore: unused_element
+  SearchUsers$ call(String query) {
+    return SearchUsers$(
+      query,
+    );
+  }
+
+// ignore: unused_element
+  SearchUsersSuccessful successful(List<AppUser> users) {
+    return SearchUsersSuccessful(
+      users,
+    );
+  }
+
+// ignore: unused_element
+  SearchUsersError error(Object error) {
+    return SearchUsersError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SearchUsers = _$SearchUsersTearOff();
+
+/// @nodoc
+mixin _$SearchUsers {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<AppUser> users),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<AppUser> users),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    @required Result successful(SearchUsersSuccessful value),
+    @required Result error(SearchUsersError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    Result successful(SearchUsersSuccessful value),
+    Result error(SearchUsersError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $SearchUsersCopyWith<$Res> {
+  factory $SearchUsersCopyWith(
+          SearchUsers value, $Res Function(SearchUsers) then) =
+      _$SearchUsersCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SearchUsersCopyWithImpl<$Res> implements $SearchUsersCopyWith<$Res> {
+  _$SearchUsersCopyWithImpl(this._value, this._then);
+
+  final SearchUsers _value;
+  // ignore: unused_field
+  final $Res Function(SearchUsers) _then;
+}
+
+/// @nodoc
+abstract class $SearchUsers$CopyWith<$Res> {
+  factory $SearchUsers$CopyWith(
+          SearchUsers$ value, $Res Function(SearchUsers$) then) =
+      _$SearchUsers$CopyWithImpl<$Res>;
+  $Res call({String query});
+}
+
+/// @nodoc
+class _$SearchUsers$CopyWithImpl<$Res> extends _$SearchUsersCopyWithImpl<$Res>
+    implements $SearchUsers$CopyWith<$Res> {
+  _$SearchUsers$CopyWithImpl(
+      SearchUsers$ _value, $Res Function(SearchUsers$) _then)
+      : super(_value, (v) => _then(v as SearchUsers$));
+
+  @override
+  SearchUsers$ get _value => super._value as SearchUsers$;
+
+  @override
+  $Res call({
+    Object query = freezed,
+  }) {
+    return _then(SearchUsers$(
+      query == freezed ? _value.query : query as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SearchUsers$ implements SearchUsers$ {
+  const _$SearchUsers$(this.query) : assert(query != null);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'SearchUsers(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchUsers$ &&
+            (identical(other.query, query) ||
+                const DeepCollectionEquality().equals(other.query, query)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(query);
+
+  @override
+  $SearchUsers$CopyWith<SearchUsers$> get copyWith =>
+      _$SearchUsers$CopyWithImpl<SearchUsers$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<AppUser> users),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<AppUser> users),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    @required Result successful(SearchUsersSuccessful value),
+    @required Result error(SearchUsersError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    Result successful(SearchUsersSuccessful value),
+    Result error(SearchUsersError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchUsers$ implements SearchUsers {
+  const factory SearchUsers$(String query) = _$SearchUsers$;
+
+  String get query;
+  $SearchUsers$CopyWith<SearchUsers$> get copyWith;
+}
+
+/// @nodoc
+abstract class $SearchUsersSuccessfulCopyWith<$Res> {
+  factory $SearchUsersSuccessfulCopyWith(SearchUsersSuccessful value,
+          $Res Function(SearchUsersSuccessful) then) =
+      _$SearchUsersSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<AppUser> users});
+}
+
+/// @nodoc
+class _$SearchUsersSuccessfulCopyWithImpl<$Res>
+    extends _$SearchUsersCopyWithImpl<$Res>
+    implements $SearchUsersSuccessfulCopyWith<$Res> {
+  _$SearchUsersSuccessfulCopyWithImpl(
+      SearchUsersSuccessful _value, $Res Function(SearchUsersSuccessful) _then)
+      : super(_value, (v) => _then(v as SearchUsersSuccessful));
+
+  @override
+  SearchUsersSuccessful get _value => super._value as SearchUsersSuccessful;
+
+  @override
+  $Res call({
+    Object users = freezed,
+  }) {
+    return _then(SearchUsersSuccessful(
+      users == freezed ? _value.users : users as List<AppUser>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SearchUsersSuccessful implements SearchUsersSuccessful {
+  const _$SearchUsersSuccessful(this.users) : assert(users != null);
+
+  @override
+  final List<AppUser> users;
+
+  @override
+  String toString() {
+    return 'SearchUsers.successful(users: $users)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchUsersSuccessful &&
+            (identical(other.users, users) ||
+                const DeepCollectionEquality().equals(other.users, users)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(users);
+
+  @override
+  $SearchUsersSuccessfulCopyWith<SearchUsersSuccessful> get copyWith =>
+      _$SearchUsersSuccessfulCopyWithImpl<SearchUsersSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<AppUser> users),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(users);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<AppUser> users),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(users);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    @required Result successful(SearchUsersSuccessful value),
+    @required Result error(SearchUsersError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    Result successful(SearchUsersSuccessful value),
+    Result error(SearchUsersError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchUsersSuccessful implements SearchUsers {
+  const factory SearchUsersSuccessful(List<AppUser> users) =
+      _$SearchUsersSuccessful;
+
+  List<AppUser> get users;
+  $SearchUsersSuccessfulCopyWith<SearchUsersSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $SearchUsersErrorCopyWith<$Res> {
+  factory $SearchUsersErrorCopyWith(
+          SearchUsersError value, $Res Function(SearchUsersError) then) =
+      _$SearchUsersErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$SearchUsersErrorCopyWithImpl<$Res>
+    extends _$SearchUsersCopyWithImpl<$Res>
+    implements $SearchUsersErrorCopyWith<$Res> {
+  _$SearchUsersErrorCopyWithImpl(
+      SearchUsersError _value, $Res Function(SearchUsersError) _then)
+      : super(_value, (v) => _then(v as SearchUsersError));
+
+  @override
+  SearchUsersError get _value => super._value as SearchUsersError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(SearchUsersError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$SearchUsersError implements SearchUsersError {
+  const _$SearchUsersError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'SearchUsers.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SearchUsersError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $SearchUsersErrorCopyWith<SearchUsersError> get copyWith =>
+      _$SearchUsersErrorCopyWithImpl<SearchUsersError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String query), {
+    @required Result successful(List<AppUser> users),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String query), {
+    Result successful(List<AppUser> users),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    @required Result successful(SearchUsersSuccessful value),
+    @required Result error(SearchUsersError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(SearchUsers$ value), {
+    Result successful(SearchUsersSuccessful value),
+    Result error(SearchUsersError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchUsersError implements SearchUsers, ErrorAction {
+  const factory SearchUsersError(Object error) = _$SearchUsersError;
+
+  Object get error;
+  $SearchUsersErrorCopyWith<SearchUsersError> get copyWith;
 }
 
 /// @nodoc
@@ -1069,7 +1510,7 @@ class _$SignOutTearOff {
   }
 
 // ignore: unused_element
-  SignOutError error(AuthStateObject error) {
+  SignOutError error(Object error) {
     return SignOutError(
       error,
     );
@@ -1086,13 +1527,13 @@ mixin _$SignOut {
   Result when<Result extends Object>(
     Result $default(), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -1163,7 +1604,7 @@ class _$SignOut$ implements SignOut$ {
   Result when<Result extends Object>(
     Result $default(), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1176,7 +1617,7 @@ class _$SignOut$ implements SignOut$ {
   Result maybeWhen<Result extends Object>(
     Result $default(), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1259,7 +1700,7 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   Result when<Result extends Object>(
     Result $default(), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1272,7 +1713,7 @@ class _$SignOutSuccessful implements SignOutSuccessful {
   Result maybeWhen<Result extends Object>(
     Result $default(), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1320,7 +1761,7 @@ abstract class $SignOutErrorCopyWith<$Res> {
   factory $SignOutErrorCopyWith(
           SignOutError value, $Res Function(SignOutError) then) =
       _$SignOutErrorCopyWithImpl<$Res>;
-  $Res call({AuthStateObject error});
+  $Res call({Object error});
 }
 
 /// @nodoc
@@ -1338,7 +1779,7 @@ class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
     Object error = freezed,
   }) {
     return _then(SignOutError(
-      error == freezed ? _value.error : error as AuthStateObject,
+      error == freezed ? _value.error : error,
     ));
   }
 }
@@ -1350,7 +1791,7 @@ class _$SignOutError implements SignOutError {
   const _$SignOutError(this.error) : assert(error != null);
 
   @override
-  final AuthStateObject error;
+  final Object error;
 
   @override
   String toString() {
@@ -1378,7 +1819,7 @@ class _$SignOutError implements SignOutError {
   Result when<Result extends Object>(
     Result $default(), {
     @required Result successful(),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -1391,7 +1832,7 @@ class _$SignOutError implements SignOutError {
   Result maybeWhen<Result extends Object>(
     Result $default(), {
     Result successful(),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1431,9 +1872,9 @@ class _$SignOutError implements SignOutError {
 }
 
 abstract class SignOutError implements SignOut, ErrorAction {
-  const factory SignOutError(AuthStateObject error) = _$SignOutError;
+  const factory SignOutError(Object error) = _$SignOutError;
 
-  AuthStateObject get error;
+  Object get error;
   $SignOutErrorCopyWith<SignOutError> get copyWith;
 }
 
@@ -1894,7 +2335,7 @@ class _$SignUpWithGoogleTearOff {
   }
 
 // ignore: unused_element
-  SignUpWithGoogleError error(AuthStateObject error) {
+  SignUpWithGoogleError error(Object error) {
     return SignUpWithGoogleError(
       error,
     );
@@ -1911,13 +2352,13 @@ mixin _$SignUpWithGoogle {
   Result when<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     @required Result successful(AppUser user),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     Result successful(AppUser user),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -2017,7 +2458,7 @@ class _$SignUpWithGoogle$ implements SignUpWithGoogle$ {
   Result when<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     @required Result successful(AppUser user),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -2030,7 +2471,7 @@ class _$SignUpWithGoogle$ implements SignUpWithGoogle$ {
   Result maybeWhen<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     Result successful(AppUser user),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2142,7 +2583,7 @@ class _$SignUpWithGoogleSuccessful implements SignUpWithGoogleSuccessful {
   Result when<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     @required Result successful(AppUser user),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -2155,7 +2596,7 @@ class _$SignUpWithGoogleSuccessful implements SignUpWithGoogleSuccessful {
   Result maybeWhen<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     Result successful(AppUser user),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2207,7 +2648,7 @@ abstract class $SignUpWithGoogleErrorCopyWith<$Res> {
   factory $SignUpWithGoogleErrorCopyWith(SignUpWithGoogleError value,
           $Res Function(SignUpWithGoogleError) then) =
       _$SignUpWithGoogleErrorCopyWithImpl<$Res>;
-  $Res call({AuthStateObject error});
+  $Res call({Object error});
 }
 
 /// @nodoc
@@ -2226,7 +2667,7 @@ class _$SignUpWithGoogleErrorCopyWithImpl<$Res>
     Object error = freezed,
   }) {
     return _then(SignUpWithGoogleError(
-      error == freezed ? _value.error : error as AuthStateObject,
+      error == freezed ? _value.error : error,
     ));
   }
 }
@@ -2238,7 +2679,7 @@ class _$SignUpWithGoogleError implements SignUpWithGoogleError {
   const _$SignUpWithGoogleError(this.error) : assert(error != null);
 
   @override
-  final AuthStateObject error;
+  final Object error;
 
   @override
   String toString() {
@@ -2267,7 +2708,7 @@ class _$SignUpWithGoogleError implements SignUpWithGoogleError {
   Result when<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     @required Result successful(AppUser user),
-    @required Result error(AuthStateObject error),
+    @required Result error(Object error),
   }) {
     assert($default != null);
     assert(successful != null);
@@ -2280,7 +2721,7 @@ class _$SignUpWithGoogleError implements SignUpWithGoogleError {
   Result maybeWhen<Result extends Object>(
     Result $default(void Function(AppAction) response), {
     Result successful(AppUser user),
-    Result error(AuthStateObject error),
+    Result error(Object error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -2320,9 +2761,8 @@ class _$SignUpWithGoogleError implements SignUpWithGoogleError {
 }
 
 abstract class SignUpWithGoogleError implements SignUpWithGoogle, ErrorAction {
-  const factory SignUpWithGoogleError(AuthStateObject error) =
-      _$SignUpWithGoogleError;
+  const factory SignUpWithGoogleError(Object error) = _$SignUpWithGoogleError;
 
-  AuthStateObject get error;
+  Object get error;
   $SignUpWithGoogleErrorCopyWith<SignUpWithGoogleError> get copyWith;
 }

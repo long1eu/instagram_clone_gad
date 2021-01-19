@@ -34,58 +34,60 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> with DialogMixin 
       appBar: AppBar(
         title: const Text('Reset password'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          child: Builder(
-            builder: (BuildContext context) {
-              return Column(
-                children: <Widget>[
-                  TextFormField(
-                    controller: _email,
-                    decoration: const InputDecoration(
-                      hintText: 'email',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (String value) {},
-                    validator: (String value) {
-                      if (!value.contains('@') || !value.contains('.')) {
-                        return 'Please enter a valid email address';
-                      }
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            child: Builder(
+              builder: (BuildContext context) {
+                return Column(
+                  children: <Widget>[
+                    TextFormField(
+                      controller: _email,
+                      decoration: const InputDecoration(
+                        hintText: 'email',
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: (String value) {},
+                      validator: (String value) {
+                        if (!value.contains('@') || !value.contains('.')) {
+                          return 'Please enter a valid email address';
+                        }
 
-                      return null;
-                    },
-                  ),
-                  const Spacer(),
-                  FlatButton(
-                    child: const Text('Login'),
-                    onPressed: () {
-                      if (Form.of(context).validate()) {
-                        StoreProvider.of<AppState>(context).dispatch(ResetPassword(_email.text));
-                      }
-                    },
-                  ),
-                  const Divider(),
-                  Text.rich(
-                    TextSpan(
-                      text: 'You don\'t have an account? ',
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Sign Up!',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.pushNamed(context, AppRoutes.signup);
-                            },
-                        ),
-                      ],
+                        return null;
+                      },
                     ),
-                  ),
-                ],
-              );
-            },
+                    const Spacer(),
+                    FlatButton(
+                      child: const Text('Login'),
+                      onPressed: () {
+                        if (Form.of(context).validate()) {
+                          StoreProvider.of<AppState>(context).dispatch(ResetPassword(_email.text));
+                        }
+                      },
+                    ),
+                    const Divider(),
+                    Text.rich(
+                      TextSpan(
+                        text: 'You don\'t have an account? ',
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Sign Up!',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.pushNamed(context, AppRoutes.signup);
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

@@ -18,59 +18,61 @@ class SignupPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Signup'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          child: Builder(
-            builder: (BuildContext context) {
-              return Column(
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'email',
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (String value) {
-                      StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(email: value));
-                    },
-                    validator: (String value) {
-                      if (!value.contains('@') || !value.contains('.')) {
-                        return 'Please enter a valid email address';
-                      }
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            child: Builder(
+              builder: (BuildContext context) {
+                return Column(
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'email',
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: (String value) {
+                        StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(email: value));
+                      },
+                      validator: (String value) {
+                        if (!value.contains('@') || !value.contains('.')) {
+                          return 'Please enter a valid email address';
+                        }
 
-                      return null;
-                    },
-                  ),
-                  const Spacer(),
-                  FlatButton(
-                    child: const Text('Continue'),
-                    onPressed: () {
-                      if (Form.of(context).validate()) {
-                        Navigator.pushNamed(context, AppRoutes.username);
-                      }
-                    },
-                  ),
-                  const Divider(),
-                  Text.rich(
-                    TextSpan(
-                      text: 'Already have an account? ',
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Login!',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
-                            },
-                        ),
-                      ],
+                        return null;
+                      },
                     ),
-                  ),
-                ],
-              );
-            },
+                    const Spacer(),
+                    FlatButton(
+                      child: const Text('Continue'),
+                      onPressed: () {
+                        if (Form.of(context).validate()) {
+                          Navigator.pushNamed(context, AppRoutes.username);
+                        }
+                      },
+                    ),
+                    const Divider(),
+                    Text.rich(
+                      TextSpan(
+                        text: 'Already have an account? ',
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Login!',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

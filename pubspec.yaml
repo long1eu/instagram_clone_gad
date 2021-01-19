@@ -12,13 +12,16 @@ dependencies:
   cupertino_icons: ^1.0.0
 
   # firebase
-  firebase_core: ^0.5.3
-  firebase_auth: ^0.18.4+1
-  cloud_firestore: ^0.14.4
+  firebase_core: ^0.7.0
+  firebase_auth: ^0.20.0+1
+  firebase_storage: ^7.0.0
+  cloud_firestore: ^0.16.0
   google_sign_in: ^4.5.9
 
   # flutter
   flutter_redux: ^0.7.0
+  image_picker: ^0.6.7+21
+  location: ^3.2.1
 
   # dart
   redux: ^4.0.0+3

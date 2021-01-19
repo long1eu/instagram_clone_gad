@@ -2,15 +2,17 @@
 // Lung Razvan <long1eu>
 // on 04/01/2021
 
+import 'package:built_collection/built_collection.dart';
 import 'package:instagram_clone_gad/src/actions/auth/index.dart';
 import 'package:instagram_clone_gad/src/models/index.dart';
 import 'package:redux/redux.dart';
 
-Reducer<AuthState> reducer = combineReducers(<Reducer<AuthState>>[
+Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, LoginSuccessful>(_loginSuccessful),
   TypedReducer<AuthState, SignupSuccessful>(_signupSuccessful),
   TypedReducer<AuthState, UpdateRegistrationInfo>(_updateRegistrationInfo),
   TypedReducer<AuthState, SignUpWithGoogleSuccessful>(_signUpWithGoogleSuccessful),
+  TypedReducer<AuthState, SearchUsersSuccessful>(_searchUsersSuccessful),
 ]);
 
 AuthState _loginSuccessful(AuthState state, LoginSuccessful action) {
@@ -37,4 +39,10 @@ AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo action
 
 AuthState _signUpWithGoogleSuccessful(AuthState state, SignUpWithGoogleSuccessful action) {
   return state.rebuild((AuthStateBuilder b) => b.user = action.user?.toBuilder());
+}
+
+AuthState _searchUsersSuccessful(AuthState state, SearchUsersSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    b.searchResult = ListBuilder<AppUser>(action.users);
+  });
 }
