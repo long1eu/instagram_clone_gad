@@ -19,6 +19,7 @@ class PostsEpics {
   Epic<AppState> get epics {
     return combineEpics<AppState>(<Epic<AppState>>[
       TypedEpic<AppState, CreatePost$>(_createPost),
+      TypedEpic<AppState, ListenForPosts$>(_listenForPosts),
     ]);
   }
 
@@ -28,5 +29,23 @@ class PostsEpics {
             .asyncMap((CreatePost$ action) => _api.createPost(store.state.posts.info, store.state.auth.user.uid))
             .map((Post post) => CreatePost.successful(post))
             .onErrorReturnWith((dynamic error) => CreatePost.error(error)));
+  }
+
+  Stream<AppAction> _listenForPosts(Stream<ListenForPosts$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((ListenForPosts$ action) => Stream<ListenForPosts$>.value(action)
+            .asyncMap((ListenForPosts$ action) => _api.listenForPosts(<String>[
+                  store.state.auth.user.uid,
+                  ...store.state.auth.user.following,
+                ]))
+            .expand((List<Post> posts) => <AppAction>[
+                  ListenForPosts.successful(posts),
+                  ...posts
+                      .map((Post post) => post.uid)
+                      .toSet()
+                      .where((String uid) => store.state.auth.users[uid] == null)
+                      .map((String uid) => GetUser(uid)),
+                ])
+            .onErrorReturnWith((dynamic error) => ListenForPosts.error(error)));
   }
 }

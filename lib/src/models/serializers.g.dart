@@ -10,9 +10,25 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AppState.serializer)
       ..add(AppUser.serializer)
       ..add(AuthState.serializer)
+      ..add(Post.serializer)
       ..add(PostInfo.serializer)
       ..add(PostsState.serializer)
       ..add(RegistrationInfo.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Post)]),
+          () => new ListBuilder<Post>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AppUser)]),
           () => new ListBuilder<AppUser>())
@@ -25,6 +41,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap,
+              const [const FullType(String), const FullType(AppUser)]),
+          () => new MapBuilder<String, AppUser>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AppUser)]),
           () => new ListBuilder<AppUser>()))

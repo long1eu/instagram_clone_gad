@@ -9,6 +9,8 @@ import 'package:redux/redux.dart';
 
 Reducer<PostsState> postsReducer = combineReducers(<Reducer<PostsState>>[
   TypedReducer<PostsState, UpdatePostInfo>(_updatePostInfo),
+  TypedReducer<PostsState, ListenForPostsSuccessful>(_listenForPostsSuccessful),
+  TypedReducer<PostsState, CreatePostSuccessful>(_createPostSuccessful),
 ]);
 
 PostsState _updatePostInfo(PostsState state, UpdatePostInfo action) {
@@ -35,5 +37,17 @@ PostsState _updatePostInfo(PostsState state, UpdatePostInfo action) {
     } else {
       b.info = PostInfo().toBuilder();
     }
+  });
+}
+
+PostsState _listenForPostsSuccessful(PostsState state, ListenForPostsSuccessful action) {
+  return state.rebuild((PostsStateBuilder b) {
+    b.posts = ListBuilder<Post>(action.posts);
+  });
+}
+
+PostsState _createPostSuccessful(PostsState state, CreatePostSuccessful action) {
+  return state.rebuild((PostsStateBuilder b) {
+    b.info = PostInfo().toBuilder();
   });
 }

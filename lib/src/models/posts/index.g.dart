@@ -219,6 +219,10 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
       'info',
       serializers.serialize(object.info,
           specifiedType: const FullType(PostInfo)),
+      'posts',
+      serializers.serialize(object.posts,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(Post)])),
     ];
 
     return result;
@@ -238,6 +242,12 @@ class _$PostsStateSerializer implements StructuredSerializer<PostsState> {
         case 'info':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(PostInfo)) as PostInfo);
+          break;
+        case 'posts':
+          result.posts.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(Post)]))
+              as BuiltList<Object>);
           break;
       }
     }
@@ -614,13 +624,18 @@ class PostBuilder implements Builder<Post, PostBuilder> {
 class _$PostsState extends PostsState {
   @override
   final PostInfo info;
+  @override
+  final BuiltList<Post> posts;
 
   factory _$PostsState([void Function(PostsStateBuilder) updates]) =>
       (new PostsStateBuilder()..update(updates)).build();
 
-  _$PostsState._({this.info}) : super._() {
+  _$PostsState._({this.info, this.posts}) : super._() {
     if (info == null) {
       throw new BuiltValueNullFieldError('PostsState', 'info');
+    }
+    if (posts == null) {
+      throw new BuiltValueNullFieldError('PostsState', 'posts');
     }
   }
 
@@ -634,17 +649,19 @@ class _$PostsState extends PostsState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is PostsState && info == other.info;
+    return other is PostsState && info == other.info && posts == other.posts;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, info.hashCode));
+    return $jf($jc($jc(0, info.hashCode), posts.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PostsState')..add('info', info))
+    return (newBuiltValueToStringHelper('PostsState')
+          ..add('info', info)
+          ..add('posts', posts))
         .toString();
   }
 }
@@ -656,11 +673,16 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
   PostInfoBuilder get info => _$this._info ??= new PostInfoBuilder();
   set info(PostInfoBuilder info) => _$this._info = info;
 
+  ListBuilder<Post> _posts;
+  ListBuilder<Post> get posts => _$this._posts ??= new ListBuilder<Post>();
+  set posts(ListBuilder<Post> posts) => _$this._posts = posts;
+
   PostsStateBuilder();
 
   PostsStateBuilder get _$this {
     if (_$v != null) {
       _info = _$v.info?.toBuilder();
+      _posts = _$v.posts?.toBuilder();
       _$v = null;
     }
     return this;
@@ -683,12 +705,15 @@ class PostsStateBuilder implements Builder<PostsState, PostsStateBuilder> {
   _$PostsState build() {
     _$PostsState _$result;
     try {
-      _$result = _$v ?? new _$PostsState._(info: info.build());
+      _$result =
+          _$v ?? new _$PostsState._(info: info.build(), posts: posts.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'info';
         info.build();
+        _$failedField = 'posts';
+        posts.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'PostsState', _$failedField, e.toString());

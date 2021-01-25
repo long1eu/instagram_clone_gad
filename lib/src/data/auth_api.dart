@@ -11,8 +11,11 @@ import 'package:instagram_clone_gad/src/models/index.dart';
 import 'package:meta/meta.dart';
 
 class AuthApi {
-  const AuthApi({@required FirebaseAuth auth, @required FirebaseFirestore firestore, @required GoogleSignIn google})
-      : assert(auth != null),
+  const AuthApi({
+    @required FirebaseAuth auth,
+    @required FirebaseFirestore firestore,
+    @required GoogleSignIn google,
+  })  : assert(auth != null),
         assert(firestore != null),
         assert(google != null),
         _auth = auth,
@@ -22,6 +25,16 @@ class AuthApi {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
   final GoogleSignIn _google;
+
+  Future<AppUser> getCurrentUser() async {
+    final User user = _auth.currentUser;
+    if (user == null) {
+      return null;
+    }
+
+    final DocumentSnapshot snapshot = await _firestore.doc('users/${user.uid}').get();
+    return AppUser.fromJson(snapshot.data());
+  }
 
   Future<AppUser> login({@required String email, @required String password}) async {
     final UserCredential response = await _auth.signInWithEmailAndPassword(email: email, password: password);
@@ -98,5 +111,21 @@ class AuthApi {
     return snapshot.docs //
         .map((QueryDocumentSnapshot snapshot) => AppUser.fromJson(snapshot.data()))
         .toList();
+  }
+
+  Future<void> updateFollowing({@required String uid, String add, String remove}) async {
+    FieldValue value;
+    if (add != null) {
+      value = FieldValue.arrayUnion(<String>[add]);
+    } else {
+      value = FieldValue.arrayRemove(<String>[remove]);
+    }
+
+    await _firestore.doc('users/$uid').update(<String, dynamic>{'following': value});
+  }
+
+  Future<AppUser> getUser(String uid) async {
+    final DocumentSnapshot doc = await _firestore.doc('users/$uid').get();
+    return AppUser.fromJson(doc.data());
   }
 }

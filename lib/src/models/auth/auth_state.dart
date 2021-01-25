@@ -16,6 +16,8 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
   @nullable
   AppUser get user;
 
+  BuiltMap<String, AppUser> get users;
+
   RegistrationInfo get info;
 
   BuiltList<AppUser> get searchResult;

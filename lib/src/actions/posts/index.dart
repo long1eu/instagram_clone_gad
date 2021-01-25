@@ -10,4 +10,5 @@ import 'package:instagram_clone_gad/src/models/index.dart';
 
 part 'create_post.dart';
 part 'index.freezed.dart';
+part 'listen_for_posts.dart';
 part 'set.dart';

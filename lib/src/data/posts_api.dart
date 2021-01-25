@@ -9,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:instagram_clone_gad/src/models/index.dart';
 import 'package:meta/meta.dart';
+import 'package:quiver/iterables.dart';
 
 class PostsApi {
   const PostsApi({@required FirebaseFirestore firestore, @required FirebaseStorage storage})
@@ -52,5 +53,24 @@ class PostsApi {
     }
 
     return images;
+  }
+
+  Future<List<Post>> listenForPosts(List<String> following) async {
+    final List<Post> newResult = <Post>[];
+    final List<List<String>> parts = partition(following, 10).toList();
+    for (List<String> following in parts) {
+      final QuerySnapshot snapshot = await _firestore
+          .collection('posts') //
+          .where('uid', whereIn: following)
+          .get();
+
+      final List<Post> result = snapshot.docs //
+          .map((QueryDocumentSnapshot doc) => Post.fromJson(doc.data()))
+          .toList();
+
+      newResult.addAll(result);
+    }
+
+    return newResult;
   }
 }

@@ -8,7 +8,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:instagram_clone_gad/src/actions/index.dart';
 import 'package:instagram_clone_gad/src/actions/posts/index.dart';
 import 'package:instagram_clone_gad/src/models/index.dart';
+import 'package:instagram_clone_gad/src/presentation/feed/feed_page.dart';
 import 'package:instagram_clone_gad/src/presentation/routes.dart';
+import 'package:instagram_clone_gad/src/presentation/widgets/search_users_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -23,23 +25,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.power_settings_new),
-            onPressed: () {
-              StoreProvider.of<AppState>(context).dispatch(const SignOut());
-            },
-          ),
-        ],
-      ),
       body: <Widget>[
-        Container(color: Colors.red),
-        Container(color: Colors.green),
+        const FeedPage(),
+        const SearchUsersPage(showFollow: true),
         Container(color: Colors.blue),
         Container(color: Colors.yellow),
-        Container(color: Colors.orange),
+        Container(
+          color: Colors.orange,
+          child: Center(
+            child: IconButton(
+              icon: const Icon(Icons.power_settings_new),
+              onPressed: () {
+                StoreProvider.of<AppState>(context).dispatch(const SignOut());
+              },
+            ),
+          ),
+        ),
       ][_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
@@ -60,8 +61,8 @@ class _HomePageState extends State<HomePage> {
             label: 'home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'home',
+            icon: Icon(Icons.search),
+            label: 'search',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),

@@ -27,7 +27,7 @@ class PostDetails extends StatelessWidget {
                 child: const Text('Share'),
                 onPressed: () {
                   StoreProvider.of<AppState>(context).dispatch(const CreatePost());
-                  Navigator.pop(context);
+                  Navigator.popUntil(context, ModalRoute.withName(AppRoutes.home));
                 },
               ),
             ],

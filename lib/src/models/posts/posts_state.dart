@@ -17,6 +17,8 @@ abstract class PostsState implements Built<PostsState, PostsStateBuilder> {
 
   PostInfo get info;
 
+  BuiltList<Post> get posts;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<PostsState> get serializer => _$postsStateSerializer;

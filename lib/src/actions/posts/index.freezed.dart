@@ -424,6 +424,425 @@ abstract class CreatePostError implements CreatePost, ErrorAction {
 }
 
 /// @nodoc
+class _$ListenForPostsTearOff {
+  const _$ListenForPostsTearOff();
+
+// ignore: unused_element
+  ListenForPosts$ call() {
+    return const ListenForPosts$();
+  }
+
+// ignore: unused_element
+  ListenForPostsSuccessful successful(List<Post> posts) {
+    return ListenForPostsSuccessful(
+      posts,
+    );
+  }
+
+// ignore: unused_element
+  ListenForPostsError error(Object error) {
+    return ListenForPostsError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $ListenForPosts = _$ListenForPostsTearOff();
+
+/// @nodoc
+mixin _$ListenForPosts {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    @required Result successful(ListenForPostsSuccessful value),
+    @required Result error(ListenForPostsError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    Result successful(ListenForPostsSuccessful value),
+    Result error(ListenForPostsError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $ListenForPostsCopyWith<$Res> {
+  factory $ListenForPostsCopyWith(
+          ListenForPosts value, $Res Function(ListenForPosts) then) =
+      _$ListenForPostsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ListenForPostsCopyWithImpl<$Res>
+    implements $ListenForPostsCopyWith<$Res> {
+  _$ListenForPostsCopyWithImpl(this._value, this._then);
+
+  final ListenForPosts _value;
+  // ignore: unused_field
+  final $Res Function(ListenForPosts) _then;
+}
+
+/// @nodoc
+abstract class $ListenForPosts$CopyWith<$Res> {
+  factory $ListenForPosts$CopyWith(
+          ListenForPosts$ value, $Res Function(ListenForPosts$) then) =
+      _$ListenForPosts$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ListenForPosts$CopyWithImpl<$Res>
+    extends _$ListenForPostsCopyWithImpl<$Res>
+    implements $ListenForPosts$CopyWith<$Res> {
+  _$ListenForPosts$CopyWithImpl(
+      ListenForPosts$ _value, $Res Function(ListenForPosts$) _then)
+      : super(_value, (v) => _then(v as ListenForPosts$));
+
+  @override
+  ListenForPosts$ get _value => super._value as ListenForPosts$;
+}
+
+/// @nodoc
+class _$ListenForPosts$ implements ListenForPosts$ {
+  const _$ListenForPosts$();
+
+  @override
+  String toString() {
+    return 'ListenForPosts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ListenForPosts$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    @required Result successful(ListenForPostsSuccessful value),
+    @required Result error(ListenForPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    Result successful(ListenForPostsSuccessful value),
+    Result error(ListenForPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListenForPosts$ implements ListenForPosts {
+  const factory ListenForPosts$() = _$ListenForPosts$;
+}
+
+/// @nodoc
+abstract class $ListenForPostsSuccessfulCopyWith<$Res> {
+  factory $ListenForPostsSuccessfulCopyWith(ListenForPostsSuccessful value,
+          $Res Function(ListenForPostsSuccessful) then) =
+      _$ListenForPostsSuccessfulCopyWithImpl<$Res>;
+  $Res call({List<Post> posts});
+}
+
+/// @nodoc
+class _$ListenForPostsSuccessfulCopyWithImpl<$Res>
+    extends _$ListenForPostsCopyWithImpl<$Res>
+    implements $ListenForPostsSuccessfulCopyWith<$Res> {
+  _$ListenForPostsSuccessfulCopyWithImpl(ListenForPostsSuccessful _value,
+      $Res Function(ListenForPostsSuccessful) _then)
+      : super(_value, (v) => _then(v as ListenForPostsSuccessful));
+
+  @override
+  ListenForPostsSuccessful get _value =>
+      super._value as ListenForPostsSuccessful;
+
+  @override
+  $Res call({
+    Object posts = freezed,
+  }) {
+    return _then(ListenForPostsSuccessful(
+      posts == freezed ? _value.posts : posts as List<Post>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$ListenForPostsSuccessful implements ListenForPostsSuccessful {
+  const _$ListenForPostsSuccessful(this.posts) : assert(posts != null);
+
+  @override
+  final List<Post> posts;
+
+  @override
+  String toString() {
+    return 'ListenForPosts.successful(posts: $posts)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ListenForPostsSuccessful &&
+            (identical(other.posts, posts) ||
+                const DeepCollectionEquality().equals(other.posts, posts)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(posts);
+
+  @override
+  $ListenForPostsSuccessfulCopyWith<ListenForPostsSuccessful> get copyWith =>
+      _$ListenForPostsSuccessfulCopyWithImpl<ListenForPostsSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(posts);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(posts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    @required Result successful(ListenForPostsSuccessful value),
+    @required Result error(ListenForPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    Result successful(ListenForPostsSuccessful value),
+    Result error(ListenForPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListenForPostsSuccessful implements ListenForPosts {
+  const factory ListenForPostsSuccessful(List<Post> posts) =
+      _$ListenForPostsSuccessful;
+
+  List<Post> get posts;
+  $ListenForPostsSuccessfulCopyWith<ListenForPostsSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $ListenForPostsErrorCopyWith<$Res> {
+  factory $ListenForPostsErrorCopyWith(
+          ListenForPostsError value, $Res Function(ListenForPostsError) then) =
+      _$ListenForPostsErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$ListenForPostsErrorCopyWithImpl<$Res>
+    extends _$ListenForPostsCopyWithImpl<$Res>
+    implements $ListenForPostsErrorCopyWith<$Res> {
+  _$ListenForPostsErrorCopyWithImpl(
+      ListenForPostsError _value, $Res Function(ListenForPostsError) _then)
+      : super(_value, (v) => _then(v as ListenForPostsError));
+
+  @override
+  ListenForPostsError get _value => super._value as ListenForPostsError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(ListenForPostsError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$ListenForPostsError implements ListenForPostsError {
+  const _$ListenForPostsError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'ListenForPosts.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ListenForPostsError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $ListenForPostsErrorCopyWith<ListenForPostsError> get copyWith =>
+      _$ListenForPostsErrorCopyWithImpl<ListenForPostsError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(List<Post> posts),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(List<Post> posts),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    @required Result successful(ListenForPostsSuccessful value),
+    @required Result error(ListenForPostsError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(ListenForPosts$ value), {
+    Result successful(ListenForPostsSuccessful value),
+    Result error(ListenForPostsError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ListenForPostsError implements ListenForPosts, ErrorAction {
+  const factory ListenForPostsError(Object error) = _$ListenForPostsError;
+
+  Object get error;
+  $ListenForPostsErrorCopyWith<ListenForPostsError> get copyWith;
+}
+
+/// @nodoc
 class _$UpdatePostInfoTearOff {
   const _$UpdatePostInfoTearOff();
 

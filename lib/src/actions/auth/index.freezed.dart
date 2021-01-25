@@ -10,6 +10,861 @@ part of auth_actions;
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+class _$GetUserTearOff {
+  const _$GetUserTearOff();
+
+// ignore: unused_element
+  GetUser$ call(String uid) {
+    return GetUser$(
+      uid,
+    );
+  }
+
+// ignore: unused_element
+  GetUserSuccessful successful(AppUser user) {
+    return GetUserSuccessful(
+      user,
+    );
+  }
+
+// ignore: unused_element
+  GetUserError error(Object error) {
+    return GetUserError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GetUser = _$GetUserTearOff();
+
+/// @nodoc
+mixin _$GetUser {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(AppUser user),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUser$ value), {
+    @required Result successful(GetUserSuccessful value),
+    @required Result error(GetUserError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUser$ value), {
+    Result successful(GetUserSuccessful value),
+    Result error(GetUserError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $GetUserCopyWith<$Res> {
+  factory $GetUserCopyWith(GetUser value, $Res Function(GetUser) then) =
+      _$GetUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetUserCopyWithImpl<$Res> implements $GetUserCopyWith<$Res> {
+  _$GetUserCopyWithImpl(this._value, this._then);
+
+  final GetUser _value;
+  // ignore: unused_field
+  final $Res Function(GetUser) _then;
+}
+
+/// @nodoc
+abstract class $GetUser$CopyWith<$Res> {
+  factory $GetUser$CopyWith(GetUser$ value, $Res Function(GetUser$) then) =
+      _$GetUser$CopyWithImpl<$Res>;
+  $Res call({String uid});
+}
+
+/// @nodoc
+class _$GetUser$CopyWithImpl<$Res> extends _$GetUserCopyWithImpl<$Res>
+    implements $GetUser$CopyWith<$Res> {
+  _$GetUser$CopyWithImpl(GetUser$ _value, $Res Function(GetUser$) _then)
+      : super(_value, (v) => _then(v as GetUser$));
+
+  @override
+  GetUser$ get _value => super._value as GetUser$;
+
+  @override
+  $Res call({
+    Object uid = freezed,
+  }) {
+    return _then(GetUser$(
+      uid == freezed ? _value.uid : uid as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetUser$ implements GetUser$ {
+  const _$GetUser$(this.uid) : assert(uid != null);
+
+  @override
+  final String uid;
+
+  @override
+  String toString() {
+    return 'GetUser(uid: $uid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUser$ &&
+            (identical(other.uid, uid) ||
+                const DeepCollectionEquality().equals(other.uid, uid)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(uid);
+
+  @override
+  $GetUser$CopyWith<GetUser$> get copyWith =>
+      _$GetUser$CopyWithImpl<GetUser$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(AppUser user),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(uid);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(uid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUser$ value), {
+    @required Result successful(GetUserSuccessful value),
+    @required Result error(GetUserError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUser$ value), {
+    Result successful(GetUserSuccessful value),
+    Result error(GetUserError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUser$ implements GetUser {
+  const factory GetUser$(String uid) = _$GetUser$;
+
+  String get uid;
+  $GetUser$CopyWith<GetUser$> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetUserSuccessfulCopyWith<$Res> {
+  factory $GetUserSuccessfulCopyWith(
+          GetUserSuccessful value, $Res Function(GetUserSuccessful) then) =
+      _$GetUserSuccessfulCopyWithImpl<$Res>;
+  $Res call({AppUser user});
+}
+
+/// @nodoc
+class _$GetUserSuccessfulCopyWithImpl<$Res> extends _$GetUserCopyWithImpl<$Res>
+    implements $GetUserSuccessfulCopyWith<$Res> {
+  _$GetUserSuccessfulCopyWithImpl(
+      GetUserSuccessful _value, $Res Function(GetUserSuccessful) _then)
+      : super(_value, (v) => _then(v as GetUserSuccessful));
+
+  @override
+  GetUserSuccessful get _value => super._value as GetUserSuccessful;
+
+  @override
+  $Res call({
+    Object user = freezed,
+  }) {
+    return _then(GetUserSuccessful(
+      user == freezed ? _value.user : user as AppUser,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetUserSuccessful implements GetUserSuccessful {
+  const _$GetUserSuccessful(this.user) : assert(user != null);
+
+  @override
+  final AppUser user;
+
+  @override
+  String toString() {
+    return 'GetUser.successful(user: $user)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUserSuccessful &&
+            (identical(other.user, user) ||
+                const DeepCollectionEquality().equals(other.user, user)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+
+  @override
+  $GetUserSuccessfulCopyWith<GetUserSuccessful> get copyWith =>
+      _$GetUserSuccessfulCopyWithImpl<GetUserSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(AppUser user),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUser$ value), {
+    @required Result successful(GetUserSuccessful value),
+    @required Result error(GetUserError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUser$ value), {
+    Result successful(GetUserSuccessful value),
+    Result error(GetUserError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserSuccessful implements GetUser {
+  const factory GetUserSuccessful(AppUser user) = _$GetUserSuccessful;
+
+  AppUser get user;
+  $GetUserSuccessfulCopyWith<GetUserSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetUserErrorCopyWith<$Res> {
+  factory $GetUserErrorCopyWith(
+          GetUserError value, $Res Function(GetUserError) then) =
+      _$GetUserErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$GetUserErrorCopyWithImpl<$Res> extends _$GetUserCopyWithImpl<$Res>
+    implements $GetUserErrorCopyWith<$Res> {
+  _$GetUserErrorCopyWithImpl(
+      GetUserError _value, $Res Function(GetUserError) _then)
+      : super(_value, (v) => _then(v as GetUserError));
+
+  @override
+  GetUserError get _value => super._value as GetUserError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(GetUserError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$GetUserError implements GetUserError {
+  const _$GetUserError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'GetUser.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetUserError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $GetUserErrorCopyWith<GetUserError> get copyWith =>
+      _$GetUserErrorCopyWithImpl<GetUserError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String uid), {
+    @required Result successful(AppUser user),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String uid), {
+    Result successful(AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetUser$ value), {
+    @required Result successful(GetUserSuccessful value),
+    @required Result error(GetUserError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetUser$ value), {
+    Result successful(GetUserSuccessful value),
+    Result error(GetUserError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetUserError implements GetUser, ErrorAction {
+  const factory GetUserError(Object error) = _$GetUserError;
+
+  Object get error;
+  $GetUserErrorCopyWith<GetUserError> get copyWith;
+}
+
+/// @nodoc
+class _$InitializeAppTearOff {
+  const _$InitializeAppTearOff();
+
+// ignore: unused_element
+  InitializeApp$ call() {
+    return const InitializeApp$();
+  }
+
+// ignore: unused_element
+  InitializeAppSuccessful successful(@nullable AppUser user) {
+    return InitializeAppSuccessful(
+      user,
+    );
+  }
+
+// ignore: unused_element
+  InitializeAppError error(Object error) {
+    return InitializeAppError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $InitializeApp = _$InitializeAppTearOff();
+
+/// @nodoc
+mixin _$InitializeApp {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(@nullable AppUser user),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(@nullable AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    @required Result successful(InitializeAppSuccessful value),
+    @required Result error(InitializeAppError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    Result successful(InitializeAppSuccessful value),
+    Result error(InitializeAppError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $InitializeAppCopyWith<$Res> {
+  factory $InitializeAppCopyWith(
+          InitializeApp value, $Res Function(InitializeApp) then) =
+      _$InitializeAppCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InitializeAppCopyWithImpl<$Res>
+    implements $InitializeAppCopyWith<$Res> {
+  _$InitializeAppCopyWithImpl(this._value, this._then);
+
+  final InitializeApp _value;
+  // ignore: unused_field
+  final $Res Function(InitializeApp) _then;
+}
+
+/// @nodoc
+abstract class $InitializeApp$CopyWith<$Res> {
+  factory $InitializeApp$CopyWith(
+          InitializeApp$ value, $Res Function(InitializeApp$) then) =
+      _$InitializeApp$CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InitializeApp$CopyWithImpl<$Res>
+    extends _$InitializeAppCopyWithImpl<$Res>
+    implements $InitializeApp$CopyWith<$Res> {
+  _$InitializeApp$CopyWithImpl(
+      InitializeApp$ _value, $Res Function(InitializeApp$) _then)
+      : super(_value, (v) => _then(v as InitializeApp$));
+
+  @override
+  InitializeApp$ get _value => super._value as InitializeApp$;
+}
+
+/// @nodoc
+class _$InitializeApp$ implements InitializeApp$ {
+  const _$InitializeApp$();
+
+  @override
+  String toString() {
+    return 'InitializeApp()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is InitializeApp$);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(@nullable AppUser user),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(@nullable AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    @required Result successful(InitializeAppSuccessful value),
+    @required Result error(InitializeAppError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    Result successful(InitializeAppSuccessful value),
+    Result error(InitializeAppError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitializeApp$ implements InitializeApp {
+  const factory InitializeApp$() = _$InitializeApp$;
+}
+
+/// @nodoc
+abstract class $InitializeAppSuccessfulCopyWith<$Res> {
+  factory $InitializeAppSuccessfulCopyWith(InitializeAppSuccessful value,
+          $Res Function(InitializeAppSuccessful) then) =
+      _$InitializeAppSuccessfulCopyWithImpl<$Res>;
+  $Res call({@nullable AppUser user});
+}
+
+/// @nodoc
+class _$InitializeAppSuccessfulCopyWithImpl<$Res>
+    extends _$InitializeAppCopyWithImpl<$Res>
+    implements $InitializeAppSuccessfulCopyWith<$Res> {
+  _$InitializeAppSuccessfulCopyWithImpl(InitializeAppSuccessful _value,
+      $Res Function(InitializeAppSuccessful) _then)
+      : super(_value, (v) => _then(v as InitializeAppSuccessful));
+
+  @override
+  InitializeAppSuccessful get _value => super._value as InitializeAppSuccessful;
+
+  @override
+  $Res call({
+    Object user = freezed,
+  }) {
+    return _then(InitializeAppSuccessful(
+      user == freezed ? _value.user : user as AppUser,
+    ));
+  }
+}
+
+/// @nodoc
+class _$InitializeAppSuccessful implements InitializeAppSuccessful {
+  const _$InitializeAppSuccessful(@nullable this.user);
+
+  @override
+  @nullable
+  final AppUser user;
+
+  @override
+  String toString() {
+    return 'InitializeApp.successful(user: $user)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InitializeAppSuccessful &&
+            (identical(other.user, user) ||
+                const DeepCollectionEquality().equals(other.user, user)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+
+  @override
+  $InitializeAppSuccessfulCopyWith<InitializeAppSuccessful> get copyWith =>
+      _$InitializeAppSuccessfulCopyWithImpl<InitializeAppSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(@nullable AppUser user),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(@nullable AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    @required Result successful(InitializeAppSuccessful value),
+    @required Result error(InitializeAppError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    Result successful(InitializeAppSuccessful value),
+    Result error(InitializeAppError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitializeAppSuccessful implements InitializeApp {
+  const factory InitializeAppSuccessful(@nullable AppUser user) =
+      _$InitializeAppSuccessful;
+
+  @nullable
+  AppUser get user;
+  $InitializeAppSuccessfulCopyWith<InitializeAppSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $InitializeAppErrorCopyWith<$Res> {
+  factory $InitializeAppErrorCopyWith(
+          InitializeAppError value, $Res Function(InitializeAppError) then) =
+      _$InitializeAppErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$InitializeAppErrorCopyWithImpl<$Res>
+    extends _$InitializeAppCopyWithImpl<$Res>
+    implements $InitializeAppErrorCopyWith<$Res> {
+  _$InitializeAppErrorCopyWithImpl(
+      InitializeAppError _value, $Res Function(InitializeAppError) _then)
+      : super(_value, (v) => _then(v as InitializeAppError));
+
+  @override
+  InitializeAppError get _value => super._value as InitializeAppError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(InitializeAppError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$InitializeAppError implements InitializeAppError {
+  const _$InitializeAppError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'InitializeApp.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InitializeAppError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $InitializeAppErrorCopyWith<InitializeAppError> get copyWith =>
+      _$InitializeAppErrorCopyWithImpl<InitializeAppError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(), {
+    @required Result successful(@nullable AppUser user),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(), {
+    Result successful(@nullable AppUser user),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    @required Result successful(InitializeAppSuccessful value),
+    @required Result error(InitializeAppError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(InitializeApp$ value), {
+    Result successful(InitializeAppSuccessful value),
+    Result error(InitializeAppError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitializeAppError implements InitializeApp, ErrorAction {
+  const factory InitializeAppError(Object error) = _$InitializeAppError;
+
+  Object get error;
+  $InitializeAppErrorCopyWith<InitializeAppError> get copyWith;
+}
+
+/// @nodoc
 class _$LoginTearOff {
   const _$LoginTearOff();
 
@@ -2765,4 +3620,471 @@ abstract class SignUpWithGoogleError implements SignUpWithGoogle, ErrorAction {
 
   Object get error;
   $SignUpWithGoogleErrorCopyWith<SignUpWithGoogleError> get copyWith;
+}
+
+/// @nodoc
+class _$UpdateFollowingTearOff {
+  const _$UpdateFollowingTearOff();
+
+// ignore: unused_element
+  UpdateFollowing$ call({String add, String remove}) {
+    return UpdateFollowing$(
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateFollowingSuccessful successful({String add, String remove}) {
+    return UpdateFollowingSuccessful(
+      add: add,
+      remove: remove,
+    );
+  }
+
+// ignore: unused_element
+  UpdateFollowingError error(Object error) {
+    return UpdateFollowingError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateFollowing = _$UpdateFollowingTearOff();
+
+/// @nodoc
+mixin _$UpdateFollowing {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    @required Result successful(UpdateFollowingSuccessful value),
+    @required Result error(UpdateFollowingError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    Result successful(UpdateFollowingSuccessful value),
+    Result error(UpdateFollowingError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $UpdateFollowingCopyWith<$Res> {
+  factory $UpdateFollowingCopyWith(
+          UpdateFollowing value, $Res Function(UpdateFollowing) then) =
+      _$UpdateFollowingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateFollowingCopyWithImpl<$Res>
+    implements $UpdateFollowingCopyWith<$Res> {
+  _$UpdateFollowingCopyWithImpl(this._value, this._then);
+
+  final UpdateFollowing _value;
+  // ignore: unused_field
+  final $Res Function(UpdateFollowing) _then;
+}
+
+/// @nodoc
+abstract class $UpdateFollowing$CopyWith<$Res> {
+  factory $UpdateFollowing$CopyWith(
+          UpdateFollowing$ value, $Res Function(UpdateFollowing$) then) =
+      _$UpdateFollowing$CopyWithImpl<$Res>;
+  $Res call({String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateFollowing$CopyWithImpl<$Res>
+    extends _$UpdateFollowingCopyWithImpl<$Res>
+    implements $UpdateFollowing$CopyWith<$Res> {
+  _$UpdateFollowing$CopyWithImpl(
+      UpdateFollowing$ _value, $Res Function(UpdateFollowing$) _then)
+      : super(_value, (v) => _then(v as UpdateFollowing$));
+
+  @override
+  UpdateFollowing$ get _value => super._value as UpdateFollowing$;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateFollowing$(
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateFollowing$ implements UpdateFollowing$ {
+  const _$UpdateFollowing$({this.add, this.remove});
+
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateFollowing(add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateFollowing$ &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateFollowing$CopyWith<UpdateFollowing$> get copyWith =>
+      _$UpdateFollowing$CopyWithImpl<UpdateFollowing$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    @required Result successful(UpdateFollowingSuccessful value),
+    @required Result error(UpdateFollowingError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    Result successful(UpdateFollowingSuccessful value),
+    Result error(UpdateFollowingError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateFollowing$ implements UpdateFollowing {
+  const factory UpdateFollowing$({String add, String remove}) =
+      _$UpdateFollowing$;
+
+  String get add;
+  String get remove;
+  $UpdateFollowing$CopyWith<UpdateFollowing$> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateFollowingSuccessfulCopyWith<$Res> {
+  factory $UpdateFollowingSuccessfulCopyWith(UpdateFollowingSuccessful value,
+          $Res Function(UpdateFollowingSuccessful) then) =
+      _$UpdateFollowingSuccessfulCopyWithImpl<$Res>;
+  $Res call({String add, String remove});
+}
+
+/// @nodoc
+class _$UpdateFollowingSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateFollowingCopyWithImpl<$Res>
+    implements $UpdateFollowingSuccessfulCopyWith<$Res> {
+  _$UpdateFollowingSuccessfulCopyWithImpl(UpdateFollowingSuccessful _value,
+      $Res Function(UpdateFollowingSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateFollowingSuccessful));
+
+  @override
+  UpdateFollowingSuccessful get _value =>
+      super._value as UpdateFollowingSuccessful;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+  }) {
+    return _then(UpdateFollowingSuccessful(
+      add: add == freezed ? _value.add : add as String,
+      remove: remove == freezed ? _value.remove : remove as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateFollowingSuccessful implements UpdateFollowingSuccessful {
+  const _$UpdateFollowingSuccessful({this.add, this.remove});
+
+  @override
+  final String add;
+  @override
+  final String remove;
+
+  @override
+  String toString() {
+    return 'UpdateFollowing.successful(add: $add, remove: $remove)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateFollowingSuccessful &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove);
+
+  @override
+  $UpdateFollowingSuccessfulCopyWith<UpdateFollowingSuccessful> get copyWith =>
+      _$UpdateFollowingSuccessfulCopyWithImpl<UpdateFollowingSuccessful>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(add, remove);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(add, remove);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    @required Result successful(UpdateFollowingSuccessful value),
+    @required Result error(UpdateFollowingError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    Result successful(UpdateFollowingSuccessful value),
+    Result error(UpdateFollowingError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateFollowingSuccessful implements UpdateFollowing {
+  const factory UpdateFollowingSuccessful({String add, String remove}) =
+      _$UpdateFollowingSuccessful;
+
+  String get add;
+  String get remove;
+  $UpdateFollowingSuccessfulCopyWith<UpdateFollowingSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateFollowingErrorCopyWith<$Res> {
+  factory $UpdateFollowingErrorCopyWith(UpdateFollowingError value,
+          $Res Function(UpdateFollowingError) then) =
+      _$UpdateFollowingErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$UpdateFollowingErrorCopyWithImpl<$Res>
+    extends _$UpdateFollowingCopyWithImpl<$Res>
+    implements $UpdateFollowingErrorCopyWith<$Res> {
+  _$UpdateFollowingErrorCopyWithImpl(
+      UpdateFollowingError _value, $Res Function(UpdateFollowingError) _then)
+      : super(_value, (v) => _then(v as UpdateFollowingError));
+
+  @override
+  UpdateFollowingError get _value => super._value as UpdateFollowingError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(UpdateFollowingError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$UpdateFollowingError implements UpdateFollowingError {
+  const _$UpdateFollowingError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'UpdateFollowing.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateFollowingError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $UpdateFollowingErrorCopyWith<UpdateFollowingError> get copyWith =>
+      _$UpdateFollowingErrorCopyWithImpl<UpdateFollowingError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String add, String remove), {
+    @required Result successful(String add, String remove),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String add, String remove), {
+    Result successful(String add, String remove),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    @required Result successful(UpdateFollowingSuccessful value),
+    @required Result error(UpdateFollowingError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateFollowing$ value), {
+    Result successful(UpdateFollowingSuccessful value),
+    Result error(UpdateFollowingError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateFollowingError implements UpdateFollowing, ErrorAction {
+  const factory UpdateFollowingError(Object error) = _$UpdateFollowingError;
+
+  Object get error;
+  $UpdateFollowingErrorCopyWith<UpdateFollowingError> get copyWith;
 }
